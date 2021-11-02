@@ -1,0 +1,93 @@
+body {
+	background-color: #80deea;
+}
+
+#navbar {
+	background-color: black;
+	z-index: .1;
+	font-family: 'Ubuntu', sans-serif;
+}
+
+#navbar ul li a {
+	color: white;
+	font-size: 16px;
+	font-weight: bold;
+	padding: 15px 20px;
+}
+
+#navbar ul li a:hover {
+	color: black;
+	background-color: white;
+	border-radius: 18px;
+}
+
+h2 {
+	font-family: 'Ubuntu', sans-serif;
+	color: white;
+	font-weight: bold;
+}
+
+.banner {
+	width: 100%;
+	height: 95vh;
+	background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)),
+		url(../images/banner.jpg);
+	background-size: 100% 100%;
+}
+
+.my-card {
+	margin-top: 70px;
+	padding: 20px;
+	background: #FFFFFF;
+	font-family: 'Ubuntu', sans-serif;
+	font-weight: bold;
+}
+
+/* Sidebar designing */
+@media only screen and(max-width:600px) {
+	.sidebar {
+		width: 80% important;
+		background: white;
+		height: 100vh;
+		position: fixed;
+		padding-top: 20px;
+		display: none;
+	}
+	.content {
+		margin-left: 0% !important;
+	}
+}
+
+.sidebar {
+	width: 18%;
+	background: #eceff1;
+	height: 100%;
+	position: fixed;
+	padding-top: 45px;
+}
+
+
+
+.sidebar a {
+	display: block;
+	width: 100%;
+	padding: 10px 25px;
+	text-decoration: none;
+	color: #000000;
+}
+
+.sidebar a:hover {
+	background: #80deea;
+}
+
+
+.sidebar .divider {
+	height: .5px;
+	width: 100%;
+	background: #80deea;
+}
+
+.content {
+	margin-left: 20%;
+	margin-top: 0px;
+}

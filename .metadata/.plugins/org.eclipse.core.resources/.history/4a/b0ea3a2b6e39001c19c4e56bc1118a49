@@ -1,0 +1,20 @@
+package com.ecommerce.web;
+
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+
+
+
+@SpringBootApplication
+public class EcommerceSportyShoesPortalApplication  {
+
+
+	public static void main(String[] args) {
+		
+		SpringApplication.run(EcommerceSportyShoesPortalApplication.class, args);
+	}
+
+
+}

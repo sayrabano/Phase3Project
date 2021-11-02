@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base3::layout(~{::section})">
+	
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<section>
+<form>
+
+<div class="row">
+
+ <div class="column">
+<div class="card">
+  <a href="/">
+ <img style="width: 200px;" alt="" src=""
+								th:src="@{/images/soccer-shoe-150x150.png}">
+  <h3>Soccer Sport Shoes</h3>
+  </a>
+</div>
+  </div>
+   <div class="column">
+<div class="card">
+  <a href="/">
+ <img style="width: 200px;" alt="" src=""
+								th:src="@{/images/golf-shoes-150x150.png}">
+  <h3>Soccer Sport Shoes</h3>
+  </a>
+</div>
+  </div>
+   <div class="column">
+<div class="card">
+  <a href="/">
+ <img style="width: 200px;" alt="" src=""
+								th:src="@{/images/high-tops-shoes-150x150.png}">
+  <h3>Soccer Sport Shoes</h3>
+  </a>
+</div>
+  </div>
+   <div class="column">
+<div class="card">
+  <a href="/">
+ <img style="width: 200px;" alt="" src=""
+								th:src="@{/images/running-shoes-150x150.png}">
+  <h3>Soccer Sport Shoes</h3>
+  </a>
+</div>
+  </div>
+  
+ <div class="column">
+<div class="card">
+  <a href="/">
+ <img style="width: 200px;" alt="" src=""
+								th:src="@{/images/hiking-shoes-150x150.png}">
+  <h3>Soccer Sport Shoes</h3>
+  </a>
+</div>
+  </div>
+
+</div>
+
+</form>
+
+ 
+
+
+
+
+
+</section>
+
+</body>
+</html>

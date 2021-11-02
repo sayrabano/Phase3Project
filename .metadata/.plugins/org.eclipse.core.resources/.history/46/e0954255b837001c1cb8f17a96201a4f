@@ -1,0 +1,31 @@
+package com.ecommerce.web.entity;
+
+
+
+public class UserList {
+	
+	
+	private int user_id;
+	private String user_name;
+	
+	private String user_email;
+	private String user_location;
+	public UserList(int user_id, String user_name, String user_email, String user_location) {
+		super();
+		this.user_id = user_id;
+		this.user_name = user_name;
+		this.user_email = user_email;
+		this.user_location = user_location;
+	}
+	public UserList() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	@Override
+	public String toString() {
+		return "UserList [user_id=" + user_id + ", user_name=" + user_name + ", user_email=" + user_email
+				+ ", user_location=" + user_location + "]";
+	}
+	
+
+}

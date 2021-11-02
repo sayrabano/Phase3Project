@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base3::layout(~{::section})">
+	
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<section>
+<form>
+
+<div class="row">
+
+ <div class="column">
+<div class="card">
+  <a href="/sport">
+ <img style="width: 40px;" alt="" src=""
+								th:src="@{/images/product-placement.png}">
+  <h3>Sport Shoes</h3>
+  </a>
+</div>
+  </div>
+
+
+</div>
+
+</form>
+
+ 
+
+
+
+
+
+</section>
+
+</body>
+</html>

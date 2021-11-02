@@ -1,0 +1,10 @@
+package com.ecommerce.web.repository;
+
+import java.util.Date;
+
+public class PurchaseRepository {
+	
+
+
+
+}

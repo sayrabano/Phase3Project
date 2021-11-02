@@ -1,0 +1,8 @@
+package com.ecommerce.web.entity;
+
+public class Admin {
+	private String email;
+	private String password;
+	
+
+}

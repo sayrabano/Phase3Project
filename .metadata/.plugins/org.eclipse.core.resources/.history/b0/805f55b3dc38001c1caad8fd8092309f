@@ -1,0 +1,17 @@
+package com.ecommerce.web.repository;
+
+import java.util.Date;
+import java.util.List;
+
+import com.ecommerce.web.entity.Purchase;
+
+public class PurchaseRepository {
+	
+
+public List<Purchase> findAll(Purchase purchase){
+	
+	return null;
+	
+}
+
+}

@@ -1,0 +1,36 @@
+package com.ecommerce.web.repository;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.jdbc.core.RowMapper;
+
+import com.ecommerce.web.entity.Purchase;
+import com.ecommerce.web.entity.UserList;
+
+public class PurchaseRepository {
+	
+
+public List<Purchase> findAll(){
+	
+	return template.query("select * from userlist", new RowMapper<UserList>() 
+	{
+		public UserList mapRow(ResultSet rs, int row) throws SQLException 
+		{
+			UserList user = new UserList();
+			user.setUser_id(rs.getInt(1));
+			user.setUser_name(rs.getString(2));
+			user.setUser_email(rs.getString(3));
+			user.setUser_location(rs.getString(4));
+	
+			return user;
+		}
+		});
+	
+}
+	
+}
+
+}

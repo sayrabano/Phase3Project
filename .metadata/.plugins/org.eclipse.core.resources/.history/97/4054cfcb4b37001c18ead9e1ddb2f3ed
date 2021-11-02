@@ -1,0 +1,7 @@
+package com.ecommerce.web.helper;
+
+public class MessageHelper {
+	private string message;
+	
+
+}

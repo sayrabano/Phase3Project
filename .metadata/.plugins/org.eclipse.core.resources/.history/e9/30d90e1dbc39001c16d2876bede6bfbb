@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base3::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<section>
+<br>
+<form method="post" th:action="@{/search-result}">
+
+ <label class="lable" for="category">Product Category:</label>
+<select id="category" name="category">
+		  <option value="Soccer Shoes">Soccer Shoes</option>
+		  <option value="Golf Shoes">Golf Shoes</option>
+		  <option value="Running Shoes">Running Shoes</option>
+		   <option value="High Top Shoes">High Top Shoes</option>
+		  <option value="Hiking Boots Shoes">Hiking Boots Shoes</option>
+		</select>
+		&nbsp;&nbsp;&nbsp;<label for="date">Purchase Date:</label>
+<input type="date" name="date" id="date" required>
+		
+		
+ <button type="submit" class="btn btn-primary">Search</button>
+</form><br>
+<div class="card">
+
+<h1 class="text-center">Purchase Report</h1>
+
+	<table class="table">
+	<thead class="thead-dark">
+	<tr>
+    <th>Product ID</th>
+    <th>Product Category</th>
+    <th>Product Brand</th>
+    <th>Product Price</th>
+     <th>Product Size</th>
+      <th>Purchase Date</th>
+    
+  </tr>
+  </thead>
+  <tbody>
+		<tr th:each="data : ${purchase}">
+            <td class="id"><span th:text="'SSPProduct' +${data.product_id}">1</span></td>
+            
+            <td><span th:text="${data.product_category}"> Product Category</span></td>
+            <td><span th:text="${data.product_brand}">Product Brand</span></td>
+            <td><span th:text="${data.product_size}">Product Size </span></td>
+             <td><span th:text="${data.product_price}">Product Price </span></td>
+              <td><span th:text="${data.purchase_date}">Purchase Date </span></td>
+        </tr>
+	
+		</tbody>
+	</table>
+</div>
+
+</section>
+
+</body>
+</html>

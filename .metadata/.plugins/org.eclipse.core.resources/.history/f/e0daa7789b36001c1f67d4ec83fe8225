@@ -1,0 +1,13 @@
+package com.ecommerce.web.service;
+import org.springframework.stereotype.Service;
+
+
+
+@Service
+public class ProductSerivce {
+	
+	
+ public boolean addproduct() {
+	 return product_category.e
+ }
+}

@@ -1,0 +1,146 @@
+package com.ecommerce.web.controller;
+
+
+
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.ecommerce.web.entity.Product;
+import com.ecommerce.web.helper.MessageHelper;
+import com.ecommerce.web.repository.ProductRepository;
+@Controller
+public class ProductController {
+	
+	@Autowired
+	ProductRepository<Product> repo;
+
+	@RequestMapping(value="adminDashboard")
+	public String dashboardt(Model model) {
+		model.addAttribute("title", "AddProduct - SportyShoes.com");
+		return "adminDashboard";
+		
+		
+	}
+	@RequestMapping("/manageProduct")
+	public String manageProduct(Model model) {
+		model.addAttribute("title", "ManageProduct - SportyShoes.com");
+		return "manageProduct";
+		
+	}
+	
+	@RequestMapping("addproduct")
+	public String addProduct(Model model) {
+		model.addAttribute("title", "AddProduct - SportyShoes.com");
+		return "addProduct";
+		
+		
+	}
+	@PostMapping("/processAddproduct")
+	public String processAddProduct(@ModelAttribute Product product,HttpSession session) {
+		
+	try {
+		
+		
+		System.out.println("Addedd" +product);
+		repo.addProduct(product);
+		session.setAttribute("message", new MessageHelper("Product added Successfully !","success"));
+	}catch(Exception e) {
+		System.out.println("Something is wrong" +e.getMessage());
+		e.printStackTrace();
+		//session.setAttribute("message", new MessageHelper("Something went wrong try again","danger"));
+	}
+	
+			return "addproduct";
+	
+	}
+	@RequestMapping("/manage-cat")
+	public String manageCategory() {
+		return "manageproduct-category";
+	}
+	
+	
+	@RequestMapping(value="/soccer")
+	public String getProductSoccer(Model model) {
+		List<Product> product = null;
+		
+		product = repo.findSoccerShoes();
+		model.addAttribute("List of Soccer Shoes : ", product);
+		System.out.println(product);
+		return "manageproduct-category";
+		
+		
+	}
+	
+	
+	
+//	@RequestMapping(value="/golf")
+//	public String getProductGolf(Model model) {
+//		List<Product> product = null;
+//		
+//	     product= repo.findGolfShoes();
+//		model.addAttribute("List of Golf Shoes : ", product);
+//		System.out.println(product);
+//		return "manageproduct-category";
+//		
+//		
+//	}
+//	
+//	
+//	@RequestMapping(value="/running")
+//	public String getProductRunning(Model model) {
+//		List<Product> product = null;
+//		
+//		product = repo.findRunningShoes();
+//		model.addAttribute("List of Running Shoes : ", product);
+//		System.out.println(product);
+//		return "manageproduct-category";
+//		
+//		
+//	}
+//	
+//	
+//	@RequestMapping(value="/hightop")
+//	public String getProductHighTop(Model model) {
+//		List<Product> product = null;
+//		
+//		product = repo.findHighTopShoes();
+//		model.addAttribute("List of High Top Shoes : ", product);
+//		System.out.println(product);
+//		return "manageproduct-category";
+//		
+//		
+//	}
+//	
+//	@RequestMapping(value="/boots")
+//	public String getProductHikingBoots(Model model) {
+//		List<Product> product = null;
+//		
+//		product = repo.findHikingBootsShoes();
+//		model.addAttribute("List of Hiking Boots Shoes : ", product);
+//		System.out.println(product);
+//		return "manageproduct-category";
+//		
+//		
+//	}
+		
+			
+			
+		
+	
+		
+		
+		
+
+		
+		
+	
+
+}
