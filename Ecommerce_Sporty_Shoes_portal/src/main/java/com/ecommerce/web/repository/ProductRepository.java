@@ -5,6 +5,7 @@ package com.ecommerce.web.repository;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -42,7 +43,7 @@ public class ProductRepository<product_category> {
 				Product product = new Product();
 				 product.setProduct_id(rs.getInt(1));
 				 product.setGender(rs.getString(2));
-				product.setProduct_brand(rs.getString(3));
+				 product.setProduct_brand(rs.getString(3));
 				 product.setProduct_category(rs.getString(4));
 				 product.setProduct_price(rs.getInt(5));
 				 product.setProduct_size(rs.getInt(6));
@@ -64,16 +65,7 @@ public class ProductRepository<product_category> {
 	 public void save(Product product) {
 			entityManager.merge(product);
 		 }
-	 
-	 public Product findById(int id) {
-		 return entityManager.find(Product.class,id);
-	 }
-	 
-	 public void deleteById(String product_id) {
-		 int id1 = Integer.parseInt(product_id); 
-		 Product product = findById(id1); 
-		 entityManager.remove(product); 
-	 }
+	
 	
 		
 	

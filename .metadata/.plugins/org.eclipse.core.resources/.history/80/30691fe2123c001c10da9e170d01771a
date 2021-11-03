@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base3::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<section>
+
+
+<div th:if="${session.message}" class="container">
+<div th:classappend="${'alert-'+session.message.type}" class ="alert text-center" role="alert">
+<span th:text="${session.message.content}"></span>
+</div>
+<th:block th:text="${#session.removeAttribute('message')}"></th:block>
+</div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 offset-md-4">
+					<div class="my-card">
+						
+							
+
+							<div><button type="submit" class="btn btn-primary btn-block">Add</button></div>
+
+
+							<!--form field  -->
+
+
+
+						</form>
+
+
+
+
+
+					</div>
+
+
+				</div>
+
+
+			</div>
+
+
+
+		</div>
+
+
+
+
+
+
+
+
+	</section>
+</body>
+</html>

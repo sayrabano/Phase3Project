@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base3::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+
+</head>
+<body>
+
+<section>
+<br>
+<form method="post" th:action="@{/manage-cat}">
+</form><br>
+<div class="card">
+
+<h1 class="text-center"></h1>
+
+	<table class="table">
+	<thead class="thead-dark">
+	<tr>
+    <th>Product ID</th>
+    <th>Product Category</th>
+    <th>Product Brand</th>
+    <th>Product Size</th>
+     <th>Product Price</th>
+     <th>Gender</th>
+     <th>Action</th>
+     
+    
+  </tr>
+  </thead>
+  <tbody>
+		
+            
+            
+           
+     <tr th:each="data : ${product}">
+            <td class="id"><span th:text="'SSPProduct' +${data.product_id}">1</span></td>
+            
+            <td th:text="${data.product_category}">Product Category</td>
+            <td th:text="${data.product_brand}">Product Brand</td>
+            <td th:text="${data.product_size}">Product Size</td>
+             <td th:text="${data.product_price}">Product Price</td>
+              <td th:text="${data.gender}">Gender</td>
+              <td><a th:href="@{/deleteproduct}"><button class="btn btn-danger">Delete</button></a>
+              
+              <a><button class="btn btn-primary">Update</button></a>
+              
+              </td>
+              
+             
+        </tr>
+	
+		</tbody>
+	</table>
+</div>
+
+</section>
+
+</body>
+</html>
