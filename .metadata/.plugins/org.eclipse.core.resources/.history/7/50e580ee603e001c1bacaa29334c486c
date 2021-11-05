@@ -1,0 +1,5 @@
+package com.ecommerce.web.repository;
+
+public interface Admin {
+
+}

@@ -1,0 +1,111 @@
+package com.ecommerce.web.controller;
+
+
+
+import java.security.Principal;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+
+import com.ecommerce.web.service.LoginService;
+
+@Controller
+
+public class MainController {
+	@Autowired 
+	LoginService service;
+	
+	@RequestMapping("/")
+	public String home(Model model) {
+		model.addAttribute("title", "Home - SportyShoes.com");
+		return "home";
+	}
+	
+	@RequestMapping("/home")
+	public String homePage(Model model) {
+		model.addAttribute("title", "Home - SportyShoes.com");
+		return "home";
+	}
+	
+	
+	
+	@RequestMapping("/admin-login")
+	public String administrationLogin(Model model ) {
+		model.addAttribute("title", "AdminLogin - SportyShoes.com");
+		return "adminstration-login";
+	}
+	
+
+	
+	@PostMapping("/adminDashboard")
+	public String dashboard(ModelMap model,@RequestParam String email,@RequestParam String password) {
+	 
+	 
+		
+	
+		model.put("title", "AdminDashboard - SportyShoes.com");
+		
+		boolean isvalidAdmin = service.validateAdmin(email, password);
+	
+		
+		if(!isvalidAdmin) {
+		
+			
+		return "error";
+		}
+		else {
+			model.put("email",email);
+		
+			model.put("password",password);
+			
+			
+			System.out.println("Admin password : "+ password);
+			System.out.println("Admin Email Address : " +email);
+			
+			model.put("email","admin@sportyshoes.com");
+			return "adminDashboard";
+		}
+		
+		
+	}
+	
+	//change password handler
+	
+			@RequestMapping(value="/changePassword")
+			public String changePassword() {
+				
+				return "changePassword";
+			}
+			
+			@PostMapping("/change")
+			public String passwordChange(@RequestParam("npass") String npass,ModelMap model) {
+				
+				
+				if(npass.equals("")) {
+					
+					model.put("errorMessage", "Please Enter password");
+					return "changePassword";
+					}
+					LoginService.password=npass;
+					model.put("errorMessage", "Password Changed! Please Login Again");
+					return "index";
+				
+				
+				
+				
+			}
+			
+			
+			@RequestMapping(value="/logout")
+			public String logout() {
+				return"logout";
+			}
+
+}

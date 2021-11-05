@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base3::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<section>
+
+<div class="container">
+<div class="row">
+<div class="col-md-6 offset-md-3">
+<div class="my-card">
+
+<h1 class="text-center">
+
+Change Password !!
+
+</h1>
+
+
+<!-- Form field  -->
+
+
+<form th:action="@{/change}" method="post">
+  
+ <div class="form-group">
+    <label for="newpass">Enter New Password</label>
+    <input name="npass" type="text" class="form-control" id="newpass" aria-describedby="passHelp" placeholder="Enter New Password">
+    
+  </div>
+  <div class="container text-center"><button type="submit" class="btn btn-success">Change</button>
+  <button type="submit" class="btn btn-warning">Reset</button></div>
+  
+</form>
+</div>
+</div>
+</div>
+</div>
+</section>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base1::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>AdminDashboard : SportyShoes.com</title>
+</head>
+<body>
+<section >
+<div class="container text-center"><img style="width:100px;" alt="" src="" th:src="@{/images/backend.png}">
+<h2>Welcome to Admin Dashboard</h2>
+<h3>You are LoggedIn as: Administration !</h3>
+<h3>Your Credential is : </h3>
+<h4 th:text="${email}">Your Email is : </h4>
+<p th:value="@{LoginService.password}"></p>
+</div>
+
+
+
+</section>
+
+</body>
+</html>
