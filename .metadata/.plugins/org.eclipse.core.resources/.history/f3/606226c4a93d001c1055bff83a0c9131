@@ -153,10 +153,7 @@ public class ProductController {
 	}
 	
 	@PostMapping("/updateproduct")
-	public String updateProduct(@PathVariable ("product_id") Integer product_id,Model model) {
-		
-		Product product  =repository.findById(product_id).get();
-		model.addAttribute("product",product);
+	public String updateProduct() {
 		
 		return "updateproduct";
 	}

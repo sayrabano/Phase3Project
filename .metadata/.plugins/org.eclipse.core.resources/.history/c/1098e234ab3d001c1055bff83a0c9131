@@ -9,7 +9,12 @@
 	<section>
 
 
-
+<div th:if="${session.message}" class="container">
+<div th:classappend="${'alert-'+session.message.type}" class ="alert text-center" role="alert">
+<span th:text="${session.message.content}"></span>
+</div>
+<th:block th:text="${#session.removeAttribute('message')}"></th:block>
+</div>
 
 		<div class="container">
 			<div class="row">
@@ -19,11 +24,11 @@
 							<img style="width: 40px;" alt="" src=""
 								th:src="@{/images/product-placement.png}">
 						</div>
-						<h4 class="text-center">Update Product!!</h4>
+						<h4 class="text-center">Add Product!!</h4>
 
 
 						<!-- Form field  -->
-						<form action="" th:action="@{/processupdateproduct}" method="post">
+						<form action="" th:action="@{/processAddproduct}" method="post">
 
 							
 							

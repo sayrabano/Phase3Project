@@ -16,7 +16,7 @@
 <h1 style="color:white;" class="font-weight-bold">SportyShoes.com</h1>
 <h4 style="color:white;">A Company that manufactures and sells sports Shoes.</h4>
 
-<a th:href="@{/admin-login/}" ><button class="btn btn-primary btn font-weight-bold"><i class="fas fa-sign-in-alt"></i>Administration Login</button></a>
+<a th:href="@{/admin-login/}" ><button class="btn btn-primary btn font-weight-bold">Administration Login</button></a>
 </div></section>
 
 </body>

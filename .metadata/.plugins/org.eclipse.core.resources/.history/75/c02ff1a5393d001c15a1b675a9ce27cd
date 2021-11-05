@@ -45,7 +45,7 @@
 				<li class="nav-item"><a th:href="@{/userlist/}" href="#"
 					class="nav-link"><i class="fa fa-user"></i>User List</a></li>
 				<li class="nav-item"><a th:href="@{/purchase}" href="#"
-					class="nav-link"><i class="fas fa-shopping-cart"></i>Purchase Report</a></li>
+					class="nav-link"><i class="fa fa-gear"></i>Purchase Report</a></li>
 				<li class="nav-item"><a th:href="@{/manageProduct}" href="#"
 					class="nav-link"><i class="fa fa-gear"></i>Manage Product</a></li>
 				<li class="nav-item"><a th:href="@{/changePassword}" href="#"
@@ -73,8 +73,8 @@
 	
 		
 <a href="#" class="item"><i class="fa fa-home"></i>Home</a>
-		<a href="#" class="item"><i class="fa fa-user"></i>UserList</a> <a href="#" th:href="@{/purchase}" class="item"><i class="fas fa-shopping-cart"></i>Purchase Report</a>
-		<a href="#" th:href="@{/manageProduct}" class="item"><i class="fa fa-gear"></i>Manage Product</a> <a href="#" th:href="@{/changePassword}"class="item"><i class="fa fa-key"></i>Change
+		<a href="#" class="item"><i class="fa fa-user"></i>UserList</a> <a href="#" th:href="@{/purchase}" class="item">Purchase Report</a>
+		<a href="#" th:href="@{/manageProduct}" class="item">Manage Product</a> <a href="#" th:href="@{/changePassword}"class="item"><i class="fa fa-key"></i>Change
 			Password</a> <a href="#" th:href="@{/logout}"class="item"><i class="fas fa-sign-out-alt"></i>Logout</a>
 		<div class="divider"></div>
 
