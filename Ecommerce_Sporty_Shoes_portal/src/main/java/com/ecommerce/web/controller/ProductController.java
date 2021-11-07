@@ -29,7 +29,7 @@ public class ProductController {
 
 	@RequestMapping(value="adminDashboard")
 	public String dashboardt(Model model) {
-		model.addAttribute("title", "AddProduct - SportyShoes.com");
+		model.addAttribute("title", "AdminDashboard - SportyShoes.com");
 		return "adminDashboard";
 		
 		
@@ -67,13 +67,15 @@ public class ProductController {
 	
 	}
 	@RequestMapping("/manage-cat")
-	public String manageCategory() {
+	public String manageCategory(Model model) {
+		
 		return "manageproduct-category";
 	}
 	
 	
 	@RequestMapping(value="/soccer")
 	public String getProductSoccer(Model model) {
+		model.addAttribute("title", "Soccer - SportyShoes.com");
 		List<Product> product = null;
 		
 		product = repo.findSoccerShoes();
@@ -89,6 +91,7 @@ public class ProductController {
 	
 	@RequestMapping(value="/golf")
 	public String getProductGolf(Model model) {
+		model.addAttribute("title", "Golf - SportyShoes.com");
 		List<Product> product = null;
 		
 	     product= repo.findGolfShoes();
@@ -102,6 +105,7 @@ public class ProductController {
 	
 	@RequestMapping(value="/running")
 	public String getProductRunning(Model model) {
+		model.addAttribute("title", "Running - SportyShoes.com");
 		List<Product> product = null;
 		
 		product = repo.findRunningShoes();
@@ -115,6 +119,7 @@ public class ProductController {
 	
 	@RequestMapping(value="/hightop")
 	public String getProductHighTop(Model model) {
+		model.addAttribute("title", "HighTop- SportyShoes.com");
 		List<Product> product = null;
 		
 		product = repo.findHighTopShoes();
@@ -127,6 +132,7 @@ public class ProductController {
 	
 	@RequestMapping(value="/boots")
 	public String getProductHikingBoots(Model model) {
+		model.addAttribute("title", "HikingBoots - SportyShoes.com");
 		List<Product> product = null;
 		
 		product = repo.findHikingBootsShoes();
@@ -141,23 +147,37 @@ public class ProductController {
 	ProductRepo repository;
 	
 	@GetMapping("/manageProduct/{product_id}")
-	public String deleteProduct(@PathVariable("product_id") Integer product_id,HttpSession session) {
+	public String deleteProduct(@PathVariable("product_id") Integer product_id) {
 		
 		Optional<Product> productoptional= repository.findById(product_id);
 		Product product =productoptional.get();
 		this.repository.delete(product);
 		
-		session.setAttribute("message",new MessageHelper("Product deleted Successfully .....","success"));
+	
 		return "redirect:/manageProduct/";
 		
 	}
 	
-	@PostMapping("/updateproduct")
+	@PostMapping("/updateproduct/{product_id}")
 	public String updateProduct(@PathVariable ("product_id") Integer product_id,Model model) {
-		
+		model.addAttribute("title", "Update Product - SportyShoes.com");
 		Product product  =repository.findById(product_id).get();
+		
 		model.addAttribute("product",product);
 		
+		return "updateproduct";
+	}
+	@PostMapping("/process")
+	public String proccesUpdateProduct(@ModelAttribute Product product,HttpSession ss) {
+		try {
+		
+		 this.repository.save(product);
+		 ss.setAttribute("message", new MessageHelper("Product Updated Successfully","success"));
+		}catch(Exception e) {
+			e.printStackTrace();
+			
+		}
+		System.out.println("Product" +product.getProduct_category());
 		return "updateproduct";
 	}
 	

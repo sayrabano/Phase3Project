@@ -20,6 +20,7 @@ public class UserController {
 	
 	@RequestMapping(value="/userlist")
 	public String getUserList(Model model) {
+		model.addAttribute("title", "UserList - SportyShoes.com");
 		List<UserList> list = repo.findAll();
 		model.addAttribute("list",list);
 		System.out.println("User data"+list);

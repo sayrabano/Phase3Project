@@ -80,8 +80,8 @@ public class MainController {
 	//change password handler
 	
 			@RequestMapping(value="/changePassword")
-			public String changePassword() {
-				
+			public String changePassword(Model model) {
+				model.addAttribute("title", "Change Password - SportyShoes.com");
 				return "changePassword";
 			}
 			

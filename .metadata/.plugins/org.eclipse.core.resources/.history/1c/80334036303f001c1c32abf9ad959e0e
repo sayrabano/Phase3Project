@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base3::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<section>
+
+
+
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 offset-md-4">
+					<div class="my-card">
+						
+						<h4 class="text-center">Update Product!!</h4>
+
+
+						<!-- Form field  -->
+						<form action="" th:action="@{/process}" method="post">
+
+							
+							
+							
+							<div class="form-group">
+				<label for="category">Product Category</label> 
+				
+					
+				<input  type="text"  required="required" class="form-control" id="cat" name="product_category">
+			</div>
+			<div class="form-group">
+				<label for="brand">Product Brand</label> 
+				<input type="text"  required="required" class="form-control" id="brand" name="product_brand">
+				
+			</div>
+			<div>
+				<label for="size">Product Size</label> 
+					<input type="number"  required="required" class="form-control" id="size" name="product_size">
+					
+			</div>
+		<div>
+				<label for="gender">Select Gender</label> <select
+					class="form-control" id="gender" name="gender" required="required" >
+					<option value="Male">Male</option>
+					<option value="Female">Female</option>
+				
+					
+				</select>
+			</div>
+			<div class="form-group">
+								<label for="exampleFormControlInput1">Product Price</label> <input
+									type="number" name="product_price" required="required" class="form-control" id="exampleFormControlInput1">
+							</div>
+							
+
+							<div><button type="submit" class="btn btn-primary btn-block">Add</button></div>
+
+
+							<!--form field  -->
+
+
+
+						</form>
+
+
+
+
+
+					</div>
+
+
+				</div>
+
+
+			</div>
+
+
+
+		</div>
+
+
+
+
+
+
+
+
+	</section>
+</body>
+</html>

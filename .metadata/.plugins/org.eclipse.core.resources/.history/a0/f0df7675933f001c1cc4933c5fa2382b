@@ -1,0 +1,16 @@
+package com.ecommerce.web.repository;
+
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.ecommerce.web.entity.Purchase;
+
+public interface PurchaseRepo extends CrudRepository<Purchase, Integer> {
+	
+	
+	
+	public List<Purchase> findByFilter(String product_category,Date purchase_date);
+
+}

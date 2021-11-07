@@ -21,6 +21,7 @@ public class PurchaseController {
 
 	@RequestMapping("/purchase")
 	public String getPurchaseReport(Model model) {
+		model.addAttribute("title", "Purchase Report - SportyShoes.com");
 		List<Purchase>purchase= repo.findAll();
 		model.addAttribute("purchase",purchase);
 		System.out.println("Purchase Report " +purchase);
@@ -29,8 +30,9 @@ public class PurchaseController {
 	
 	
 	@PostMapping("/search-result")
-	public String searchPurchaseHistory(Model model,@RequestParam String category,@RequestParam("date") @DateTimeFormat(pattern="yyyy-MM-dd") Date date) {
-	
+	public String searchPurchaseHistory(Model model,@RequestParam String category,@RequestParam @DateTimeFormat(pattern="yyyy-MM-dd") Date date) {
+		
+		model.addAttribute("title", "SearchResult - SportyShoes.com");
 		List<Purchase> purchase = repo.findByFilter(category, date);
 		model.addAttribute("purchase", purchase);
 		System.out.println("Search result " +purchase );
