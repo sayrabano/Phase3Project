@@ -16,9 +16,14 @@ import com.ecommerce.web.repository.PurchaseRepository;
 
 @Controller
 public class PurchaseController {
+	
+	//Dependency Injection--------->
 	@Autowired
 	PurchaseRepository repo;
 
+	
+	
+	//PurchaseReport handler--------------->
 	@RequestMapping("/purchase")
 	public String getPurchaseReport(Model model) {
 		model.addAttribute("title", "Purchase Report - SportyShoes.com");
@@ -29,6 +34,7 @@ public class PurchaseController {
 	}
 	
 	
+	//PurchaseReport Search handler--------------->
 	@PostMapping("/search-result")
 	public String searchPurchaseHistory(Model model,@RequestParam String category,@RequestParam @DateTimeFormat(pattern="yyyy-MM-dd") Date date) {
 		

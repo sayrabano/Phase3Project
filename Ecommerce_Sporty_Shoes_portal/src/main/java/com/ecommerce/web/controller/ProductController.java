@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ecommerce.web.entity.Product;
 import com.ecommerce.web.helper.MessageHelper;
@@ -24,9 +23,12 @@ import com.ecommerce.web.repository.ProductRepository;
 @Controller
 public class ProductController {
 	
+	//Dependency Injection-------------->
 	@Autowired
 	ProductRepository<Product> repo;
 
+	
+	//AdminDashboard handler--------------->
 	@RequestMapping(value="adminDashboard")
 	public String dashboardt(Model model) {
 		model.addAttribute("title", "AdminDashboard - SportyShoes.com");
@@ -34,6 +36,8 @@ public class ProductController {
 		
 		
 	}
+	
+	//Manage Product handler--------------->
 	@RequestMapping("/manageProduct")
 	public String manageProduct(Model model) {
 		model.addAttribute("title", "ManageProduct - SportyShoes.com");
@@ -41,6 +45,7 @@ public class ProductController {
 		
 	}
 	
+	//Add Product handler--------------->
 	@RequestMapping("addproduct")
 	public String addProduct(Model model) {
 		model.addAttribute("title", "AddProduct - SportyShoes.com");
@@ -48,6 +53,8 @@ public class ProductController {
 		
 		
 	}
+	
+	//Process add Product handler--------------->
 	@PostMapping("/processAddproduct")
 	public String processAddProduct(@ModelAttribute Product product,HttpSession session) {
 		
@@ -66,13 +73,15 @@ public class ProductController {
 			return "addproduct";
 	
 	}
+	
+	//Managing Product Category wise handler--------------->
 	@RequestMapping("/manage-cat")
 	public String manageCategory(Model model) {
 		
 		return "manageproduct-category";
 	}
 	
-	
+	//SoccerShoes category handler--------------->
 	@RequestMapping(value="/soccer")
 	public String getProductSoccer(Model model) {
 		model.addAttribute("title", "Soccer - SportyShoes.com");
@@ -88,7 +97,7 @@ public class ProductController {
 	}
 	
 	
-	
+	//GolfShoes category handler--------------->
 	@RequestMapping(value="/golf")
 	public String getProductGolf(Model model) {
 		model.addAttribute("title", "Golf - SportyShoes.com");
@@ -102,7 +111,7 @@ public class ProductController {
 		
 	}
 	
-	
+	//RunningShoes category handler--------------->
 	@RequestMapping(value="/running")
 	public String getProductRunning(Model model) {
 		model.addAttribute("title", "Running - SportyShoes.com");
@@ -116,7 +125,7 @@ public class ProductController {
 		
 	}
 	
-	
+	//HighTop Shoes category handler--------------->
 	@RequestMapping(value="/hightop")
 	public String getProductHighTop(Model model) {
 		model.addAttribute("title", "HighTop- SportyShoes.com");
@@ -129,7 +138,7 @@ public class ProductController {
 		
 		
 	}
-	
+	//Boots Shoes category handler--------------->
 	@RequestMapping(value="/boots")
 	public String getProductHikingBoots(Model model) {
 		model.addAttribute("title", "HikingBoots - SportyShoes.com");
@@ -143,14 +152,17 @@ public class ProductController {
 		
 	}
 	
+	
+	//Dependency Injection---------------->
 	@Autowired
 	ProductRepo repository;
 	
+	//Manage Product handler--------------->
 	@GetMapping("/manageProduct/{product_id}")
 	public String deleteProduct(@PathVariable("product_id") Integer product_id) {
 		
 		Optional<Product> productoptional= repository.findById(product_id);
-		Product product =productoptional.get();
+		Product product = productoptional.get();
 		this.repository.delete(product);
 		
 	
@@ -158,6 +170,7 @@ public class ProductController {
 		
 	}
 	
+	//Update Product  handler--------------->
 	@PostMapping("/updateproduct/{product_id}")
 	public String updateProduct(@PathVariable ("product_id") Integer product_id,Model model) {
 		model.addAttribute("title", "Update Product - SportyShoes.com");
@@ -167,17 +180,21 @@ public class ProductController {
 		
 		return "updateproduct";
 	}
+	
+	//Process Update Product handler--------------->
 	@PostMapping("/process")
 	public String proccesUpdateProduct(@ModelAttribute Product product,HttpSession ss) {
 		try {
 		
 		 this.repository.save(product);
+		 System.out.println("Product Category: " +product.getProduct_category());
+		 System.out.println("Product Id: " +product.getProduct_id());
 		 ss.setAttribute("message", new MessageHelper("Product Updated Successfully","success"));
 		}catch(Exception e) {
 			e.printStackTrace();
 			
 		}
-		System.out.println("Product" +product.getProduct_category());
+		
 		return "updateproduct";
 	}
 	

@@ -1,9 +1,5 @@
 package com.ecommerce.web.controller;
 
-
-
-
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,15 +16,22 @@ import com.ecommerce.web.service.LoginService;
 @Controller
 
 public class MainController {
+	
+	//Dependency Injection------------>
 	@Autowired 
 	LoginService service;
 	
+	
+	
+	//Home handler--------------->
 	@RequestMapping("/")
 	public String home(Model model) {
 		model.addAttribute("title", "Home - SportyShoes.com");
 		return "home";
 	}
 	
+	
+	//Home handler--------------->
 	@RequestMapping("/home")
 	public String homePage(Model model) {
 		model.addAttribute("title", "Home - SportyShoes.com");
@@ -36,7 +39,7 @@ public class MainController {
 	}
 	
 	
-	
+	//Admin Login handler--------------->
 	@RequestMapping("/admin-login")
 	public String administrationLogin(Model model ) {
 		model.addAttribute("title", "AdminLogin - SportyShoes.com");
@@ -44,7 +47,7 @@ public class MainController {
 	}
 	
 
-	
+	//AdminDashboard handler--------------->
 	@PostMapping("/adminDashboard")
 	public String dashboard(ModelMap model,@RequestParam String email,@RequestParam String password,HttpSession s) {
 	 
@@ -85,6 +88,7 @@ public class MainController {
 				return "changePassword";
 			}
 			
+			//Process ChangePassword handler--------------->
 			@PostMapping("/change")
 			public String passwordChange(@RequestParam("npass") String npass,HttpSession session) {
 				
@@ -105,7 +109,7 @@ public class MainController {
 				
 			}
 			
-			
+			//Logout handler--------------->
 			@PostMapping(value="/logout")
 			public String logout() {
 				return"home";

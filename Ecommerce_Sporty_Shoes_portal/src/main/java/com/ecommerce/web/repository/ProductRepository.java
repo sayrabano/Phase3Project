@@ -5,30 +5,32 @@ package com.ecommerce.web.repository;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Optional;
+
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
+
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ecommerce.web.entity.Product;
-import com.ecommerce.web.entity.Purchase;
+
 
 
 @Repository
 @Transactional
 public class ProductRepository<product_category> {
+	
+	//Dependency Injection------->
 	@Autowired
 	JdbcTemplate template;
 	
 	
-
+    //JdbcTemplate method-------->
 	public void setTemplate(JdbcTemplate template)
 	{
 		this.template = template;
@@ -71,27 +73,27 @@ public class ProductRepository<product_category> {
 	
 	 
 	 public List<Product> findSoccerShoes(){
-		 return template.query("select * from product where product_category='Soccer shoes' ", new ProductRowMapper());
+		 return template.query("select * from product where product_category='Soccer Shoes' ", new ProductRowMapper());
 
 			
 		 }
 	 public List<Product> findRunningShoes(){
-		 return template.query("select * from product where product_category='Running shoes' ", new ProductRowMapper());
+		 return template.query("select * from product where product_category='Running Shoes' ", new ProductRowMapper());
 
 			
 		 }
 	 public List<Product> findGolfShoes(){
-		 return template.query("select * from product where product_category='Golf shoes' ", new ProductRowMapper());
+		 return template.query("select * from product where product_category='Golf Shoes' ", new ProductRowMapper());
 
 			
 		 }
 	 public List<Product> findHighTopShoes(){
-		 return template.query("select * from product where product_category='High Top shoes' ", new ProductRowMapper());
+		 return template.query("select * from product where product_category='High Top Shoes' ", new ProductRowMapper());
 
 			
 		 }
 	 public List<Product> findHikingBootsShoes(){
-		 return template.query("select * from product where product_category='Hiking Boots shoes' ", new ProductRowMapper());
+		 return template.query("select * from product where product_category='Hiking Boots Shoes' ", new ProductRowMapper());
 
 			
 		 }

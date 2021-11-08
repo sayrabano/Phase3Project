@@ -1,0 +1,20 @@
+package com.ecommerce.web.repository;
+
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+
+import com.ecommerce.web.entity.Purchase;
+
+public interface PurchaseRepo  extends CrudRepository<Purchase, Integer>{
+	@Query("select purchase as p where p.product_category =:product_category and p.purchase_date =:purchase_date")
+	public List<Purchase>FindByFilter(String product_category,Date purchase_date);
+		
+	
+	
+	
+
+}

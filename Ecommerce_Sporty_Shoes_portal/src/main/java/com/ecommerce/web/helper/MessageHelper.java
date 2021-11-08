@@ -1,5 +1,6 @@
 package com.ecommerce.web.helper;
 
+//Helper class for message------->
 public class MessageHelper {
 	private String content;
 	private String type;

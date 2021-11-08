@@ -44,7 +44,7 @@
             <td th:text="${data.product_size}">Product Size</td>
              <td th:text="${data.product_price}">Product Price</td>
               <td th:text="${data.gender}">Gender</td>
-              <td><a href="#" th:onclick="|deleteProduct(${data.product_id})|"><button class="btn btn-danger"><i class="fas fa-trash"></i> Delete</button></a>
+              <td><a  th:onclick="|deleteProduct(${data.product_id})|"><button class="btn btn-danger"><i class="fas fa-trash"></i> Delete</button></a>
               
               <form method="post" th:action="@{'/updateproduct/'+${data.product_id}}"><br><a><button class="btn btn-primary"><i class="far fa-edit"></i>Update</button></a></form>
               
